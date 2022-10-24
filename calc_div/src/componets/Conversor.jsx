@@ -20,6 +20,21 @@ const Conversor = () => {
             if(div_sal === 'mxm'){
                 setResp(val);
             }
+            if(div_sal === 'usd'){
+                setResp(val*.05);
+            }
+            if(div_sal === 'eur'){
+                setResp(val*.99);
+            }
+            if(div_sal === 'btc'){
+                setResp(val);
+            }
+            if(div_sal === 'eth'){
+                setResp(val);
+            }
+            if(div_sal === 'doge'){
+                setResp(val);
+            }
             
         }     
         
