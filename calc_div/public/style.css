@@ -1,0 +1,21 @@
+body {
+    background-color: #eee;
+}
+
+p {
+    display: inline-block;
+    padding-left: 1rem;
+}
+
+.calc {
+    margin: 1rem;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+
+    background-color:aquamarine;
+    border: 1rem solid aquamarine;
+    
+    border-radius: 10px;
+    box-shadow: 1rem 1rem 1rem antiquewhite;
+}

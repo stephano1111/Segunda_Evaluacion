@@ -1,180 +1,185 @@
-import React, {useState} from 'react';
-
-
+import React, {useState, useEffect} from 'react';
 
 const Conversor = () => {
     let [resp, setResp] = useState(0);
-    const [val1, setVal1] = useState(1);
+    let [val1, setVal1] = useState(0);
     
-    let [div_ent, camEn] = useState('mxm');
+    let [val, camEn] = useState('mxm');
     let [div_sal, camSal] = useState('mxm');
-    // const arrDiv = ['mxm', 'usd', 'eur', 'btc', 'eth', 'doge'];
+    const arrDiv = ['mxm', 'usd', 'eur', 'btc', 'eth', 'doge'];
     
     const onChange = (e) => {
-        let val=0;
-        if(e.target.name === 'val1'){
-            setVal1(e.target.value);
-            val = e.target.value;
-        }
-        // MXM a -> divisas
-        if(div_ent === 'mxm'){
+        setVal1(e.target.value);
+    }
+    const onChange1 = (e) => {
+        camEn(e.target.value);
+        console.log(e.target.value);
+    }
+    const onChange2 = (e) => {
+        camSal(e.target.value);
+    }
+
+    useEffect(() => {
+        if(val === 'mxm'){
             if(div_sal === 'mxm'){
-                setResp(val);
+                setResp(val1);
             }
             if(div_sal === 'usd'){
-                setResp(val/19.93);
+                setResp(val1/19.93);
             }
             if(div_sal === 'eur'){
-                setResp(val/19.68);
+                setResp(val1/19.68);
             }
             if(div_sal === 'btc'){
-                setResp(val/386100.39);
+                setResp(val1/386100.39);
             }
             if(div_sal === 'eth'){
-                setResp(val/26954.18);
+                setResp(val1/26954.18);
             }
             if(div_sal === 'doge'){
-                setResp(val/0.002253);
+                setResp(val1/0.002253);
             } 
         }
         // USD a -> divisas 
-        if(div_ent === 'usd'){
+        if(val === 'usd'){
             if(div_sal === 'usd'){
-                setResp(val);
+                setResp(val1);
             }
             if(div_sal === 'mxm'){
-                setResp(val*19.93);
+                setResp(val1*19.93);
             }
             if(div_sal === 'eur'){
-                setResp(val*1.01);
+                setResp(val1*1.01);
             }
             if(div_sal === 'btc'){
-                setResp(val*0.000052);
+                setResp(val1*0.000052);
             }
             if(div_sal === 'eth'){
-                setResp(val*0.00074);
+                setResp(val1*0.00074);
             }
             if(div_sal === 'doge'){
-                setResp(val*16.8);
+                setResp(val1*16.8);
             } 
         }     
         // EUR a -> divisas 
-        if(div_ent === 'eur'){
+        if(val === 'eur'){
             if(div_sal === 'eur'){
-                setResp(val);
+                setResp(val1);
             }
             if(div_sal === 'mxm'){
-                setResp(val*19.67);
+                setResp(val1*19.67);
             }
             if(div_sal === 'usd'){
-                setResp(val*0.99);
+                setResp(val1*0.99);
             }
             if(div_sal === 'btc'){
-                setResp(val*0.000051);
+                setResp(val1*0.000051);
             }
             if(div_sal === 'eth'){
-                setResp(val*0.00073);
+                setResp(val1*0.00073);
             }
             if(div_sal === 'doge'){
-                setResp(val*16.59);
+                setResp(val1*16.59);
             } 
         }
         // BTC a -> divisas 
-        if(div_ent === 'btc'){
+        if(val === 'btc'){
             if(div_sal === 'btc'){
-                setResp(val);
+                setResp(val1);
             }
             if(div_sal === 'mxm'){
-                setResp(val*386100.39);
+                setResp(val1*386100.39);
             }
             if(div_sal === 'usd'){
-                setResp(val/0.000052);
+                setResp(val1/0.000052);
             }
             if(div_sal === 'eur'){
-                setResp(val/0.000051);
+                setResp(val1/0.000051);
             }
             if(div_sal === 'eth'){
-                setResp(val*14.7536);
+                setResp(val1*14.7536);
             }
             if(div_sal === 'doge'){
-                setResp(val*320975.02);
+                setResp(val1*320975.02);
             } 
         }
         // ETH a -> divisas 
-        if(div_ent === 'eth'){
+        if(val === 'eth'){
             if(div_sal === 'eth'){
-                setResp(val);
+                setResp(val1);
             }
             if(div_sal === 'mxm'){
-                setResp(val*26954.18);
+                setResp(val1*26954.18);
             }
             if(div_sal === 'usd'){
-                setResp(val/0.00074);
+                setResp(val1/0.00074);
             }
             if(div_sal === 'eur'){
-                setResp(val/0.00073);
+                setResp(val1/0.00073);
             }
             if(div_sal === 'btc'){
-                setResp(val/14.7536);
+                setResp(val1/14.7536);
             }
             if(div_sal === 'doge'){
-                setResp(val*22589.1427);
+                setResp(val1*22589.1427);
             } 
         }
         // DOGE a -> divisas 
-        if(div_ent === 'doge'){
+        if(val === 'doge'){
             if(div_sal === 'doge'){
-                setResp(val);
+                setResp(val1);
             } 
             if(div_sal === 'mxm'){
-                setResp(val*0.002253);
+                setResp(val1*0.002253);
             }
             if(div_sal === 'usd'){
-                setResp(val/16.8);
+                setResp(val1/16.8);
             }
             if(div_sal === 'eur'){
-                setResp(val/16.59);
+                setResp(val1/16.59);
             }
             if(div_sal === 'btc'){
-                setResp(val/320975.02);
+                setResp(val1/320975.02);
             }
             if(div_sal === 'eth'){
-                setResp(val/22589.1427);
+                setResp(val1/22589.1427);
             }
         }
-    }
+    });
     
     return (
         <>
-            <div>
-                <label>Ingrese monto:</label>
-                <input type="text" name='val1' id='val1' value={val1} onChange={onChange}/>
-                <br/>
-                <label>Seleccione divisa de entrada:</label>
-                <button id="mxm" onClick={() => camEn('mxm')}>MXM</button>
-                <button id="usd" onClick={() => camEn('usd')}>USD</button>
-                <button id="eur" onClick={() => camEn('eur')}>EUR</button>
-                <button id="btc" onClick={() => camEn('btc')}>BTC</button>
-                <button id="eth" onClick={() => camEn('eth')}>ETH</button>
-                <button id="doge" onClick={() => camEn('doge')}>DOGE</button>
-                <p>{div_ent}</p>
-                <br/>
+            <div className='calc'>
 
-            </div>
+                <div>
+                    <label>Ingrese monto:</label>
+                    <input type="text" name='val1' id='val1' value={val1} onChange={onChange}/>
+                    <br/>
+                    <label>Seleccione divisa de entrada:</label>
+                    <select onChange={onChange1} name="div_inp" id="div_inp">
+                        {arrDiv.map((elm, i) => {
+                            return (
+                                <option key={i} value={elm}>{elm}</option>
+                            );
+                        })}
+                    </select>
+                    <br/>
+                </div>
 
-            <div>
-                
-                <label>Seleccione divisa de salida:</label>
-                <button id="mxm1" onClick={() => camSal('mxm')}>MXM</button>
-                <button id="usd1" onClick={() => camSal('usd')}>USD</button>
-                <button id="eur1" onClick={() => camSal('eur')}>EUR</button>
-                <button id="btc1" onClick={() => camSal('btc')}>BTC</button>
-                <button id="eth1" onClick={() => camSal('eth')}>ETH</button>
-                <button id="doge1" onClick={() => camSal('doge')}>DOGE</button>
-                <br/>
-                <label>Resultado</label>
-                <p>{div_sal}</p>
-                <p>{resp}</p>
+                <div>
+                    <label>Seleccione divisa de salida:</label>
+                    <select onChange={onChange2} name="div_out" id="div_out">
+                        {arrDiv.map((elm, i) => {
+                            return (
+                                <option key={i} value={elm}>{elm}</option>
+                            )
+                        })}
+                    </select>
+                    <br/>
+                    <label>Resultado</label>
+                    <p>{resp}</p>
+                </div>
+
             </div>
         </>
     );
